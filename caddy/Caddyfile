@@ -1,10 +1,11 @@
 autograder-artifacts-sp25.160.tja.io {
     handle /uploads/* {
-        file_server /data
-        # root /data
-        # omitted: allow-popups-to-escape-sandbox allow-same-origin and the top-navigation stuff
+        root * /data
+        file_server
         header Content-Security-Policy "sandbox allow-downloads allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-presentation allow-scripts"
     }
 
-    reverse_proxy flask:5000
+    handle {
+        reverse_proxy flask:5000
+    }
 }
