@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  flask:
+    build: ./flask_app
+    volumes:
+      - ./data:/data
+    environment:
+      - FLASK_ENV=development
+      - UPLOAD_KEY
+
+  nginx:
+    image: nginx:latest
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./data:/data
+    ports:
+      - "3006:80"
+    depends_on:
+      - flask
