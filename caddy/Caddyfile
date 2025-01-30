@@ -1,6 +1,7 @@
 autograder-artifacts.160.tja.io {
-    file_server /uploads/* {
-        root /data
+    handle /uploads/* {
+        file_server /data
+        # root /data
         # omitted: allow-popups-to-escape-sandbox allow-same-origin and the top-navigation stuff
         header Content-Security-Policy "sandbox allow-downloads allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-presentation allow-scripts"
     }
