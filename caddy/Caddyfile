@@ -1,4 +1,4 @@
-autograder-artifacts.160.tja.io {
+autograder-artifacts-sp25.160.tja.io {
     handle /uploads/* {
         file_server /data
         # root /data
