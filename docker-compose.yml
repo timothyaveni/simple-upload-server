@@ -9,12 +9,14 @@ services:
       - FLASK_ENV=development
       - UPLOAD_KEY
 
-  nginx:
-    image: nginx:latest
+  caddy:
+    image: caddy:2.7-alpine
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./caddy/Caddyfile:/etc/caddy/Caddyfile
       - ./data:/data
     ports:
-      - "3006:80"
+      #- 80:80
+      #- 443:443
+      - 3006:80
     depends_on:
       - flask
