@@ -5,7 +5,7 @@ autograder-artifacts-sp25.160.tja.io {
         header Content-Security-Policy "sandbox allow-downloads allow-forms allow-modals allow-orientation-lock allow-pointer-lock allow-popups allow-presentation allow-scripts"
 
         @tracePath {
-            path /uploads/*/trace/**/*
+            path /uploads/*/trace/**/* /trace/**/*
         }
         header @tracePath Access-Control-Allow-Origin "*"
         header @tracePath Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
