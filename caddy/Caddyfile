@@ -1,3 +1,7 @@
+{
+  acme_dns linode {env.LINODE_PERSONAL_ACCESS_TOKEN}
+}
+
 *.autograder-artifacts-sp25.160.tja.io {
     root * /data/{labels.0}
     # file_server /data

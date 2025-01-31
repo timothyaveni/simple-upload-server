@@ -10,10 +10,12 @@ services:
       - UPLOAD_KEY
 
   caddy:
-    image: caddy:2.7-alpine
+    build: ./caddy
     volumes:
       - ./caddy/Caddyfile:/etc/caddy/Caddyfile
       - ./data:/data
+    environment:
+      - LINODE_PERSONAL_ACCESS_TOKEN
     ports:
       #- 80:80
       #- 443:443
