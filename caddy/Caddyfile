@@ -3,8 +3,8 @@
 }
 
 *.autograder-artifacts-sp25.160.tja.io {
-    root * /data/{labels.0}
-    # file_server /data
+    root * /data/uploads/{labels.4}
+    file_server
 }
 
 autograder-artifacts-sp25.160.tja.io {

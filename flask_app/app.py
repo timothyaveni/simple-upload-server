@@ -15,6 +15,8 @@ if not os.path.exists(UPLOAD_FOLDER):
 app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
 app.config["MAX_CONTENT_LENGTH"] = MAX_CONTENT_LENGTH
 
+def get_folder_url(folder):
+    return os.getenv('UPLOAD_URL').replace('{FOLDER}', folder)
 
 def extract_zip(file_path, extract_to):
     with zipfile.ZipFile(file_path, "r") as zip_ref:
@@ -45,7 +47,7 @@ def upload_file():
     extract_zip(file_path, folder_path)
     os.remove(file_path)
 
-    return jsonify({"url": f"/uploads/{folder_id}/"}), 201
+    return jsonify({"url": get_folder_url(folder_id)}), 201
 
 
 if __name__ == "__main__":

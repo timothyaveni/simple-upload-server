@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   flask:
     build: ./flask_app
@@ -8,6 +6,7 @@ services:
     environment:
       - FLASK_ENV=development
       - UPLOAD_KEY
+      - UPLOAD_URL
 
   caddy:
     build: ./caddy
@@ -17,8 +16,8 @@ services:
     environment:
       - LINODE_PERSONAL_ACCESS_TOKEN
     ports:
-      #- 80:80
-      #- 443:443
-      - 3006:80
+      - 80:80
+      - 443:443
+      # - 3006:80
     depends_on:
       - flask
