@@ -2,11 +2,11 @@
   acme_dns linode {env.LINODE_PERSONAL_ACCESS_TOKEN}
 }
 
-*.autograder-artifacts-sp25.160.tja.io {
+*.{env.BASE_DOMAIN} {
     root * /data/uploads/{labels.4}
     file_server
 }
 
-autograder-artifacts-sp25.160.tja.io {
+{env.BASE_DOMAIN} {
     reverse_proxy flask:5000
 }
